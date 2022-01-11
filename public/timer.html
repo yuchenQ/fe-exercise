@@ -18,14 +18,14 @@
         <h1>Timer exercise</h1>
       </header>
       <form id="timer-form" class="timer-form">
-        <section class="figure">0</section>
+        <section class="figure" id="figure">0</section>
         <fieldset>
           <legend>Options:</legend>
           <div class="start-point-container">
             <label for="start-point">Start Point: </label>
             <input
               type="text"
-              id="start-point"
+              id="start-point-input"
               form="timer-form"
               placeholder="0"
             />
@@ -34,15 +34,21 @@
             <label for="interval">Interval: </label>
             <input
               type="text"
-              id="interval"
+              id="interval-input"
               form="timer-form"
               placeholder="1000"
             />
           </div>
           <div class="buttons-container">
-            <button type="button" form="timer-form">Start</button>
-            <button type="button" form="timer-form">Pause</button>
-            <button type="reset" form="timer-form">Reset</button>
+            <button type="button" form="timer-form" id="button-start">
+              Start
+            </button>
+            <button type="button" form="timer-form" id="button-pause">
+              Pause
+            </button>
+            <button type="button" form="timer-form" id="button-reset">
+              Reset
+            </button>
           </div>
         </fieldset>
       </form>
