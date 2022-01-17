@@ -242,10 +242,12 @@ function animate() {
     );
 
     if (con) {
-      return init();
+      init();
     } else {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
+
+    return;
   }
   if (isEatFood) {
     food = randomFood(snake, canvas.width, canvas.height);
