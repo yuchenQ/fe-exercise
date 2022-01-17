@@ -1,6 +1,8 @@
+import { newSetInterval } from "./newSetInterval.js";
+
 const RECT_SIZE = 40;
 
-export const DIRECTION = {
+const DIRECTION = {
   LEFT: "ArrowLeft",
   UP: "ArrowUp",
   RIGHT: "ArrowRight",
@@ -25,7 +27,7 @@ class Rect {
   }
 }
 
-export class Snake {
+class Snake {
   constructor(
     startPos,
     length = 0,
@@ -105,3 +107,92 @@ export class Snake {
     }
   }
 }
+
+function randomFood(snake, canvasWidth, canvasHeight) {
+  const isOverlap = (x, y) => {
+    if (x === snake.head.x && y === snake.head.y) {
+      return true;
+    }
+
+    if (snake.body.find((i) => i.x === x && i.y === y)) {
+      return true;
+    }
+
+    return false;
+  };
+
+  let isInSake = true;
+  let rect;
+
+  while (isInSake) {
+    const x = Math.round((Math.random() * canvasWidth) / RECT_SIZE) * RECT_SIZE;
+    const y = Math.round((Math.random() * canvasHeight) / RECT_SIZE) * RECT_SIZE;
+
+    if (isOverlap(x, y)) {
+      isInSake = true;
+      continue;
+    } else {
+      isInSake = false;
+      rect = new Rect(x, y, RECT_SIZE, RECT_SIZE, "blue");
+    }
+  }
+
+  return rect;
+}
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+const startPos = {
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+};
+const snake = new Snake(startPos, 3, DIRECTION.RIGHT);
+snake.drawSnake(ctx);
+
+let food = randomFood(snake, canvas.width, canvas.height);
+food.draw(ctx);
+
+function optSnake(e, s) {
+  switch (e.key) {
+    case DIRECTION.LEFT: {
+      // 三元表达式，防止右移动时按左，下面同理(贪吃蛇可不能直接掉头)
+      if (s.direction !== DIRECTION.RIGHT) {
+        s.direction = DIRECTION.LEFT;
+      }
+      break;
+    }
+    case DIRECTION.UP: {
+      if (s.direction !== DIRECTION.DOWN) {
+        s.direction = DIRECTION.UP;
+      }
+      break;
+    }
+    case DIRECTION.RIGHT: {
+      if (s.direction !== DIRECTION.LEFT) {
+        s.direction = DIRECTION.RIGHT;
+      }
+      break;
+    }
+    case DIRECTION.DOWN: {
+      if (s.direction !== DIRECTION.UP) {
+        s.direction = DIRECTION.DOWN;
+      }
+      break;
+    }
+  }
+}
+
+document.addEventListener("keydown", (e) => optSnake(e, snake));
+
+function animate() {
+  // 先清空
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // 移动
+  snake.moveSnake();
+  // 再画
+  snake.drawSnake(ctx);
+  food.draw(ctx);
+}
+
+let timer = newSetInterval(animate, 500);
