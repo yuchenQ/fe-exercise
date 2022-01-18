@@ -1,14 +1,21 @@
-function openCity(event, cityId) {
-  const tabContents = document.querySelectorAll('.tabcontent');
-  const tabLinks = document.querySelectorAll('.tablinks');
+const tabNavs = document.querySelectorAll('.tab-nav');
+const tabContents = document.querySelectorAll('.tab-content');
 
-  tabContents.forEach(ele => {
-    ele.style.display = 'none';
+tabNavs[0].classList.add('active');
+tabContents[0].style.display = 'block';
+
+tabNavs.forEach((tab, i) =>{
+  tab.addEventListener('click', () => onSwitchTab(i));
+});
+
+function onSwitchTab(i) {
+  tabNavs.forEach((tab) => {
+    tab.classList.remove('active');
   });
-  tabLinks.forEach(ele => {
-    ele.classList.remove('active');
+  tabContents.forEach((content) => {
+    content.style.display = 'none';
   });
 
-  document.getElementById(cityId).style.display = "block";
-  event.target.classList.add('active');
+  tabNavs[i].classList.add('active');
+  tabContents[i].style.display = 'block';
 }
