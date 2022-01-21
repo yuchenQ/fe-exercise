@@ -18,7 +18,9 @@
         <h1>Countdown Timer exercise</h1>
       </header>
       <form id="timer-form" class="timer-form">
-        <section class="figure" id="figure">0</section>
+        <section class="figure" >
+          <div id="figure"></div>
+        </section>
         <fieldset>
           <legend>Options:</legend>
           <div class="start-point-container">
@@ -27,7 +29,7 @@
               type="text"
               id="start-point-input"
               form="timer-form"
-              placeholder="0"
+              placeholder="10"
             />
           </div>
           <div class="interval-container">
@@ -59,6 +61,6 @@
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-    <script src="countdown.js" async defer></script>
+    <script type="module" src="countdown.js" async></script>
   </body>
 </html>
