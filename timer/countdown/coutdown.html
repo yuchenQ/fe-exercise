@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="countdown.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Countdown Timer exercise</h1>
+      </header>
+      <form id="timer-form" class="timer-form">
+        <section class="figure" id="figure">0</section>
+        <fieldset>
+          <legend>Options:</legend>
+          <div class="start-point-container">
+            <label for="start-point">Start Point: </label>
+            <input
+              type="text"
+              id="start-point-input"
+              form="timer-form"
+              placeholder="0"
+            />
+          </div>
+          <div class="interval-container">
+            <label for="interval">Interval: </label>
+            <input
+              type="text"
+              id="interval-input"
+              form="timer-form"
+              placeholder="1000"
+            />
+          </div>
+          <div class="buttons-container">
+            <button type="button" form="timer-form" id="button-start">
+              Start
+            </button>
+            <button type="button" form="timer-form" id="button-pause">
+              Pause
+            </button>
+            <button type="button" form="timer-form" id="button-reset">
+              Reset
+            </button>
+          </div>
+        </fieldset>
+      </form>
+    </main>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <script src="countdown.js" async defer></script>
+  </body>
+</html>

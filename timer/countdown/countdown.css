@@ -1,0 +1,38 @@
+main {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+label {
+  margin-right: 15px;
+}
+
+.timer-form {
+  width: 600px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.figure {
+  padding: 32px;
+  font-size: 64px;
+  font-weight: bold;
+  border: 1px dashed black;
+}
+
+.interval-container, .start-point-container {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-around;
+}
