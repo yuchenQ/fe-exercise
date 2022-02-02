@@ -1,28 +1,28 @@
 .layout {
   background-color: lightgrey;
-  padding: 3em;
+  padding: 48px;
 }
 
 .clock {
   margin: 0 auto;
   border-radius: 50%;
-  background: #fff url(./ios_clock.svg) no-repeat center;
+  background: white url(./ios_clock.svg) no-repeat center;
   background-size: 88%;
-  height: 20em;
+  width: 480px;
+  height: 480px;
   position: relative;
-  width: 20em;
 }
 
-.clock:after {
-  background: #000;
-  border-radius: 50%;
+.clock::after {
   content: "";
+  background-color: black;
+  border-radius: 50%;
   position: absolute;
-  left: 50%;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 5%;
-  height: 5%;
+  width: 24px;
+  height: 24px;
   z-index: 10;
 }
 
@@ -35,33 +35,36 @@
 }
 
 .hours {
-  background: #000;
+  background-color: black;
   height: 20%;
-  left: 48.75%;
+  width: 7px;
   position: absolute;
+  left: 50%;
   top: 30%;
+  transform: translate(-50%);
   transform-origin: 50% 100%;
-  width: 2.5%;
 }
 
 .minutes {
-  background: #000;
+  background-color: black;
   height: 40%;
-  left: 49%;
+  width: 5px;
   position: absolute;
+  left: 50%;
   top: 10%;
+  transform: translate(-50%);
   transform-origin: 50% 100%;
-  width: 2%;
 }
 
 .seconds {
-  background: #000;
+  background-color: black;
   height: 45%;
-  left: 49.5%;
+  width: 5px;
   position: absolute;
-  top: 14%;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%);
   transform-origin: 50% 80%;
-  width: 1%;
   z-index: 8;
 }
 
@@ -74,9 +77,11 @@
 .hours-container {
   animation: rotate 43200s infinite linear;
 }
+
 .minutes-container {
   animation: rotate 3600s infinite steps(60);
 }
+
 .seconds-container {
   animation: rotate 60s infinite steps(60);
 }
