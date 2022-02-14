@@ -1,0 +1,5 @@
+/* Add CSS here */
+
+.downArrow::before {
+  content: '▼';
+}
