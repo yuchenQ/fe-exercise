@@ -26,7 +26,7 @@ export function setIntervalX1() {
 export function setIntervalY() {
   const timer = { value: null };
 
-  const loop = (interval, totalTimes, cb) => {
+  const loop = (interval, cb) => {
     const startTime = Date.now();
     let count = 0;
 
@@ -41,11 +41,6 @@ export function setIntervalY() {
 
       timer.value = setTimeout(fn, nextTime);
       cb(timer);
-
-      if (count === totalTimes) {
-        clearTimeout(timer.value);
-        timer.value = null;
-      }
     };
     timer.value = setTimeout(fn, interval);
   };
